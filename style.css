@@ -49,6 +49,57 @@ a:focus {
   color: #1e4062;
 }
 
+input[type=text],
+input[type=email],
+input[type=password] {
+  border: 1px solid #efefef;
+  padding: 10px 15px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 45px;
+}
+
+.icon,
+button,
+.button,
+input[type="submit"] {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #fefefa;
+  color: #444;
+  border-radius: 2px;
+  border: 1px solid #efefea;
+  font-weight: 300;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0px 10px;
+  height: 35px;
+  line-height: 33px;
+  vertical-align: top;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+.icon:hover,
+button:hover,
+button:focus,
+.button:hover,
+.button:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: #fafaf7;
+  border: 1px solid #dededa;
+  color: #000;
+}
+
+a.button {
+  padding: 11px 10px 10px 10px;
+}
+
+a.button:hover {
+  text-decoration: none;
+}
+
 pre,
 code {
   font-family: Monaco, Menlo, monospace;
