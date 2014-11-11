@@ -150,18 +150,12 @@ h1 {
 }
 
 /* tablet size */
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 500px) {
   .container {
-    width: 680px;
+    width: 400px;
   }
 }
 
-/* desktop size */
-@media only screen and (min-width: 1000px) {
-  .container {
-    width: 960px;
-  }
-}
 
 /* clearfix */
 .container:after {
