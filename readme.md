@@ -1,5 +1,7 @@
 # Seattle NodeSchool
 
+[![Join the chat at https://gitter.im/nodeschool/seattle](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nodeschool/seattle?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Learn more about the Seattle chapter at http://nodeschool.io/seattle
 
 Sign up for Seattle NodeSchool events at http://www.meetup.com/Seattle-NodeSchool
