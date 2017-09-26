@@ -110,10 +110,10 @@
             </dd>
 
             <dt class="faq__question">
-              <h4 class="faq__subheading">Who organizes this event?</h4>
+              <h4 class="faq__subheading">Who is the owner of the Seattle chapter?</h4>
             </dt>
             <dd class="faq__answer">
-              Bryan Hughes (<a href="https://twitter.com/nebrius">@nebrius</a>), Fernando Larrañaga (<a href="https://twitter.com/xabadu">@xabadu</a>), and Thomas Hunter II (<a href="https://twitter.com/tlhunter">@tlhunter</a>) run the Seattle chapter.
+              {{organizers.0.name}} (<a href="https://twitter.com/{{organizers.0.twitter}}">@{{organizers.0.twitter}}</a>) runs the Seattle chapter.
             </dd>
 
 
@@ -183,16 +183,11 @@
 
           <p>Organizers:</p>
           <ul>
-            <li>Bryan Hughes (<a href="https://twitter.com/nebrius">@nebrius</a>)</li>
-            <li>Fernando Larrañaga (<a href="https://twitter.com/xabadu">@xabadu</a>)</li>
-            <li>Thomas Hunter II (<a href="https://twitter.com/tlhunter">@tlhunter</a>)</li>
+            {{#organizers}}
+            <li>{{name}} (<a href="https://twitter.com/{{twitter}}">@{{twitter}}</a>)</li>
+            {{/organizers}}
           </ul>
 
-          <p>Emeritus Organizers:</p>
-          <ul>
-            <li>Reza Akhavan (<a href="https://twitter.com/jedireza">@jedireza</a>)</li>
-            <li>Lydia Kats (<a href="https://twitter.com/llkats">@llkats</a>)</li>
-          </ul>
           <p><strong>If you have questions or feedback about this Code of Conduct please contact
           one of the organizers.</strong></p>
           <p>The organizers of the above community adhere to the <a href="http://jsconf.com/codeofconduct.html">JSConf Code of Conduct</a>.</p>

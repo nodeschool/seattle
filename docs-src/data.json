@@ -1,11 +1,21 @@
 {
   "nextEvent": {
     "dayOfTheWeek": "Saturday",
-    "date": "September 30th",
+    "date": "November 4th",
     "time": "1-5PM",
-    "address": "Mixmax, 512 2nd St, San Francisco, CA 94107",
-    "addressUrlSafe": "512+2nd+St,+San+Francisco,+CA+94107",
-    "mentorsUrl": "https://github.com/nodeschool/sanfrancisco/issues/222",
-    "ticketsUrl": "https://ti.to/nodeschoolsf/september-30th-2017"
-  }
+    "address": "TBD",
+    "addressUrlSafe": "TBD",
+    "mentorsUrl": "#",
+    "ticketsUrl": "#"
+  },
+  "organizers" : [{
+    "name": "Seth Vinvent",
+    "twitter": ""
+  }, {
+    "name": "Wil Alvarez",
+    "twitter": "satanas82"
+  }, {
+    "name": "Justin Beckwith",
+    "twitter": ""
+  }]
 }
