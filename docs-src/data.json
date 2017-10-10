@@ -5,8 +5,8 @@
     "time": "1-5PM",
     "address": "Google, 601 N 34th St, Seattle, WA 98103",
     "addressUrlSafe": "601+N+34th+St,+Seattle,+WA+98103",
-    "mentorsUrl": "#",
-    "ticketsUrl": "#"
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/48",
+    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/244074620/"
   },
   "organizers" : [{
     "name": "Seth Vincent",
