@@ -3,19 +3,22 @@
     "dayOfTheWeek": "Saturday",
     "date": "November 4th",
     "time": "1-5PM",
-    "address": "TBD",
-    "addressUrlSafe": "TBD",
+    "address": "Google, 601 N 34th St, Seattle, WA 98103",
+    "addressUrlSafe": "601+N+34th+St,+Seattle,+WA+98103",
     "mentorsUrl": "#",
     "ticketsUrl": "#"
   },
   "organizers" : [{
-    "name": "Seth Vinvent",
-    "twitter": ""
+    "name": "Seth Vincent",
+    "twitter": "sethdvincent"
   }, {
     "name": "Wil Alvarez",
     "twitter": "satanas82"
   }, {
     "name": "Justin Beckwith",
+    "twitter": "JustinBeckwith"
+  }, {
+    "name": "Charlie Crawford",
     "twitter": ""
   }]
 }
