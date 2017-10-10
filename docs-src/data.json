@@ -1,0 +1,24 @@
+{
+  "nextEvent": {
+    "dayOfTheWeek": "Saturday",
+    "date": "November 4th",
+    "time": "1-5PM",
+    "address": "Google, 601 N 34th St, Seattle, WA 98103",
+    "addressUrlSafe": "601+N+34th+St,+Seattle,+WA+98103",
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/48",
+    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/244074620/"
+  },
+  "organizers" : [{
+    "name": "Seth Vincent",
+    "twitter": "sethdvincent"
+  }, {
+    "name": "Wil Alvarez",
+    "twitter": "satanas82"
+  }, {
+    "name": "Justin Beckwith",
+    "twitter": "JustinBeckwith"
+  }, {
+    "name": "Charlie Crawford",
+    "twitter": ""
+  }]
+}
