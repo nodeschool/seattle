@@ -7,7 +7,7 @@
   },
   "scripts": {
     "docs:build": "mkdirp docs && npm-run-all --serial docs:build:*",
-    "docs:build:html": "mustache docs-src/data.json docs-src/index.mustache > docs/index.html",
+    "docs:build:html": "mustache docs-src/data.json docs-src/index.mustache > docs/index.html && mustache docs-src/data.json docs-src/social.mustache > docs/social.html",
     "docs:build:styles": "mkdirp docs/styles && stylus docs-src/styles/index.styl --out docs/styles --include node_modules --include-css",
     "docs:build:images": "ncp docs-src/images docs/images",
     "docs:watch": "mkdirp docs && npm-run-all --parallel docs:watch:*",
@@ -16,7 +16,8 @@
     "docs:watch:images": "chokidar docs-src/images/* -c 'npm run docs:build:images' --initial",
     "docs:watch:fonts": "chokidar docs-src/fonts/* -c 'npm run docs:build:fonts' --initial",
     "docs:server": "static docs --port=${PORT:=8080} --host-address=${HOST:=127.0.0.1}",
-    "docs:dev": "npm-run-all --parallel docs:watch docs:server"
+    "docs:dev": "npm-run-all --parallel docs:watch docs:server",
+    "docs:generate-social": "node scripts/generate_social_image.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,9 @@
   },
   "homepage": "https://nodeschool.io/seattle",
   "dependencies": {
-    "mustache": "^2.2.1"
+    "mustache": "^2.2.1",
+    "nightmare": "^2.10.0",
+    "sharp": "^0.18.4"
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
