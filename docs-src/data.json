@@ -1,12 +1,12 @@
 {
   "nextEvent": {
     "dayOfTheWeek": "Saturday",
-    "date": "November 4th",
+    "date": "December 2nd",
     "time": "1-5PM",
-    "address": "Google, 601 N 34th St, Seattle, WA 98103",
-    "addressUrlSafe": "601+N+34th+St,+Seattle,+WA+98103",
-    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/48",
-    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/244074620/"
+    "address": "Groupon, 1201 3rd Ave, Seattle, WA 98101",
+    "addressUrlSafe": "1201+3rd+Ave,+Seattle,+WA+98101",
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/57",
+    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/245316852/"
   },
   "organizers" : [{
     "name": "Seth Vincent",
