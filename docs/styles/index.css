@@ -443,6 +443,26 @@ th {
 .icon-twitter {
   width: 0.9287109375em;
 }
+.next-event__social {
+  width: 400px;
+  margin: 35px 0;
+  background-color: #36578c;
+  filter: drop-shadow(0 0 15px rgba(0,0,0,0.25));
+}
+.section__content__social {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+  padding: 0 0 0 190px;
+}
+.social__button {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 160%;
+  padding-top: 15px;
+}
 * {
   box-sizing: border-box;
 }
