@@ -8,17 +8,22 @@
     "mentorsUrl": "https://github.com/nodeschool/seattle/issues/57",
     "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/245316852/"
   },
-  "organizers" : [{
-    "name": "Seth Vincent",
-    "twitter": "sethdvincent"
-  }, {
-    "name": "Wil Alvarez",
-    "twitter": "satanas82"
-  }, {
-    "name": "Justin Beckwith",
-    "twitter": "JustinBeckwith"
-  }, {
-    "name": "Charlie Crawford",
-    "twitter": ""
-  }]
+  "organizers": [
+    {
+      "name": "Seth Vincent",
+      "twitter": "sethdvincent"
+    },
+    {
+      "name": "Wil Alvarez",
+      "twitter": "satanas82"
+    },
+    {
+      "name": "Justin Beckwith",
+      "twitter": "JustinBeckwith"
+    },
+    {
+      "name": "Charlie Crawford",
+      "twitter": ""
+    }
+  ]
 }
