@@ -1,11 +1,11 @@
 {
-  "generatedAt": 1515568618856,
+  "generatedAt": 1515568773272,
   "nextEvent": {
-    "dayOfTheWeek": "Monday",
-    "date": "January 22nd",
+    "dayOfTheWeek": "Friday",
+    "date": "February 2nd",
     "time": "1:00PM-5:00PM",
-    "address": "asdl;fkj skldjf",
-    "addressUrlSafe": "skldjf",
-    "mentorsUrl": "https://github.com/e-e/test/issues/36"
+    "address": "123 801 Dexter Ave N, Seattle, WA 98109",
+    "addressUrlSafe": "801%20Dexter%20Ave%20N%2C%20Seattle%2C%20WA%2098109",
+    "mentorsUrl": "https://github.com/e-e/test/issues/37"
   }
 }
