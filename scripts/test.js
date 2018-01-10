@@ -9,8 +9,8 @@ const meetup = require('meetup-api')({
 //   console.log(err, resp);
 // });
 const MEETUP_URL = 'https://api.meetup.com';
-const MEETUP_URLNAME = 'Meetup-API-Testing';
-const MEETUP_GROUP_ID = '1556336';
+const MEETUP_URLNAME = 'Seattle-Computer-programming-Meetup-TEST';
+const MEETUP_GROUP_ID = '27105767';
 
 function createMeetupEvent(data, callback) {
   // const progressIndicator = ora('Creating Meetup.com Event').start();
@@ -41,3 +41,7 @@ function createMeetupEvent(data, callback) {
 }
 
 createMeetupEvent({ eventName: 'Test event name!!' }, function() {});
+
+// meetup.getGroup({ urlname: MEETUP_URLNAME }, function(err, resp) {
+//   console.log(err, resp);
+// });

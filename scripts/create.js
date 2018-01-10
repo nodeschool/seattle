@@ -1,6 +1,8 @@
 const fs = require('fs');
+const path = require('path');
 const { spawn } = require('child_process');
 
+require('dotenv').config();
 const request = require('request');
 const inquirer = require('inquirer');
 const slug = require('slug');
@@ -39,8 +41,8 @@ const NODESCHOOL_CHAPTER_LOCATION = 'Seattle, Washington';
 const NODESCHOOL_CHAPTER_URL = 'https://nodeschool.io/seattle';
 
 const MEETUP_URL = 'https://api.meetup.com';
-const MEETUP_URLNAME = 'Meetup-API-Testing';
-const MEETUP_GROUP_ID = '1556336';
+const MEETUP_URLNAME = 'Seattle-Computer-programming-Meetup-TEST';
+const MEETUP_GROUP_ID = '27105767';
 // const MEETUP_URLNAME = 'Seattle-NodeSchool';
 // const MEETUP_GROUP_ID = '18179633';
 
@@ -64,6 +66,11 @@ const meetupTemplate = fs.readFileSync(
   'utf8'
 );
 
+// running 'npm' with spawn does not work on windows; should really only matter in dev environments
+const NPM_CMD = /^win/.test(process.platform) ? 'npm.cmd' : 'npm';
+const timeRegex = new RegExp('^\\d{1,2}\\:\\d{2}(AM|PM)$', 'i');
+const dateRegex = new RegExp('^\\d{4}-\\d{1,2}-\\d{1,2}$');
+
 const eventNameQuestion = {
   type: 'input',
   name: 'eventName',
@@ -80,7 +87,6 @@ const eventLocationNameQuestion = {
   type: 'input',
   name: 'eventLocationName',
   message: 'What is the name of the location of the event?',
-  default: 'npm',
   validate: function(input) {
     if (!input) {
       return 'You must input a location name for the event!';
@@ -107,38 +113,108 @@ const eventDateQuestion = {
   name: 'eventDate',
   message: 'What date will the event be on? (YYYY-MM-DD)',
   validate: function(input) {
+    console.log(arguments);
     if (!input) {
       return 'You must input a date for the event!';
     }
-    const eventDateMoment = moment(input);
-    if (!eventDateMoment.isValid()) {
-      return 'You must input a valid date for the event!';
+    if (!dateRegex.test(input)) {
+      return 'You must input a valid date for the event! (YYYY-MM-DD)';
     }
     return true;
   }
 };
 
-const eventTimeQuestion = {
+const eventTimeStartQuestion = {
   type: 'input',
-  name: 'eventTime',
-  message: 'What time will the event be?',
-  default: '1-5PM',
+  name: 'eventTimeStart',
+  message: 'What time will the event start?',
+  default: '1:00PM',
   validate: function(input) {
     if (!input) {
-      return 'You must input a time for the event!';
+      return 'You must input a time for the event to start!';
+    }
+    if (!timeRegex.test(input)) {
+      return 'You must input a time in the proper format! (ex. 12:00PM)';
     }
     return true;
   }
 };
 
-const eventMentorTimeQuestion = {
+const eventTimeIntroQuestion = {
   type: 'input',
-  name: 'eventMentorTime',
-  message: 'What time should mentors show up?',
-  default: '12:30PM',
+  name: 'eventTimeIntro',
+  message: 'What time will the introductions be?',
+  default: '1:15PM',
   validate: function(input) {
     if (!input) {
-      return 'You must input a time for the for mentors to arrive!';
+      return 'You must input a time for the introductions and announcements!';
+    }
+    if (!timeRegex.test(input)) {
+      return 'You must input a time in the proper format! (ex. 12:00PM)';
+    }
+    return true;
+  }
+};
+
+const eventTimeFoodQuestion = {
+  type: 'input',
+  name: 'eventTimeFood',
+  message: 'What time will the food be available?',
+  default: '3:00PM',
+  validate: function(input) {
+    if (!input) {
+      return 'You must input a time for food!';
+    }
+    if (!timeRegex.test(input)) {
+      return 'You must input a time in the proper format! (ex. 12:00PM)';
+    }
+    return true;
+  }
+};
+
+const eventTimeLearningStartQuestion = {
+  type: 'input',
+  name: 'eventTimeLearningStart',
+  message: 'What time will learning/mentoring start?',
+  default: '1:40PM',
+  validate: function(input) {
+    if (!input) {
+      return 'You must input a time for learning/mentoring to start!';
+    }
+    if (!timeRegex.test(input)) {
+      return 'You must input a time in the proper format! (ex. 12:00PM)';
+    }
+    return true;
+  }
+};
+
+const eventTimeLearningEndQuestion = {
+  type: 'input',
+  name: 'eventTimeLearningEnd',
+  message: 'What time will learning/mentoring end?',
+  default: '5:00PM',
+  validate: function(input) {
+    if (!input) {
+      return 'You must input a time for learning/mentoring to end!';
+    }
+    if (!timeRegex.test(input)) {
+      return 'You must input a time in the proper format! (ex. 12:00PM)';
+    }
+    return true;
+  }
+};
+
+const eventTimeEndQuestion = {
+  type: 'input',
+  name: 'eventTimeEnd',
+  message: 'What time will the event end?',
+  default: '5:00PM',
+  validate: function(input) {
+    if (!input) {
+      return 'You must input a time for the event to end!';
+    }
+    if (!timeRegex.test(input)) {
+      return 'You must input a time in the proper format! (ex. 12:00PM)';
     }
     return true;
   }
@@ -151,47 +227,16 @@ function inquire(callback) {
       eventLocationNameQuestion,
       eventLocationQuestion,
       eventDateQuestion,
-      eventTimeQuestion,
-      eventMentorTimeQuestion
+      eventTimeStartQuestion,
+      eventTimeIntroQuestion,
+      eventTimeLearningStartQuestion,
+      eventTimeLearningEndQuestion,
+      eventTimeFoodQuestion,
+      eventTimeEndQuestion
     ])
     .then(function(answers) {
       callback(null, answers);
     });
-}
-
-function getDuration(date, time) {
-  const addHrs = time.toString().toLowerCase();
-  const timeParts = time.replace(/(am|pm)$/i, '').split('-');
-  const start = `${date} `;
-}
-
-function createMeetupEvent(data, callback) {
-  const progressIndicator = ora('Creating Meetup.com Event').start();
-  const {
-    eventName,
-    eventLocationName,
-    eventDate,
-    eventTime,
-    eventMeetupURL
-  } = data;
-
-  const parameters = {
-    group_id: MEETUP_GROUP_ID,
-    group_urlname: MEETUP_URLNAME,
-    name: eventName,
-    simple_html_description: '',
-    time: ''
-  };
-
-  meetup.postEvent(parameters, function(err, resp) {
-    console.log(err, resp);
-    process.exit();
-  });
-
-  // const updatedData = _.assign(data, {
-  //   eventMeetupURL: 'https://meetup.com/test-url'
-  // });
-  // callback(null, updatedData);
 }
 
 function createMentorIssue(data, callback) {
@@ -202,15 +247,23 @@ function createMentorIssue(data, callback) {
     eventName,
     eventLocationName,
     eventDate,
-    eventTime,
-    eventMeetupURL
+    eventTimeStart,
+    eventTimeEnd,
+    meetupEventURL
   } = data;
+  const mentorArriveTime = moment(
+    `${eventDate} ${eventTimeStart}`,
+    'YYYY-MM-DD hh:mma'
+  )
+    .subtract(30, 'minutes')
+    .format('hh:mmA');
 
   const mentorIssueBody = Mustache.render(mentorIssueTemplate, {
     locationName: eventLocationName,
     date: moment(eventDate).format('MMMM Do'),
-    time: eventTime,
-    meetupURL: eventMeetupURL
+    time: `${eventTimeStart}-${eventTimeEnd}`,
+    meetupURL: meetupEventURL,
+    mentorArriveTime
   });
 
   request.post(
@@ -233,11 +286,109 @@ function createMentorIssue(data, callback) {
       progressIndicator.stopAndPersist(SUCCESS_SYMBOL);
       const { html_url: mentorRegistrationUrl } = body;
       const updatedData = _.assign(data, {
-        mentorRegistrationUrl
+        mentorRegistrationUrl,
+        mentorArriveTime
       });
       callback(null, updatedData);
     }
   );
+}
+
+function getDuration(date, startTime, endTime) {
+  let start = moment(`${date} ${startTime}`, 'YYYY-MM-DD hh:mmA').valueOf();
+  let end = moment(`${date} ${endTime}`, 'YYYY-MM-DD hh:mmA').valueOf();
+  return end - start;
+}
+
+function createMeetupEvent(data, callback) {
+  const progressIndicator = ora('Creating Meetup.com Event').start();
+  const {
+    eventName,
+    eventLocationName,
+    eventDate,
+    eventTimeStart,
+    eventMeetupURL,
+    eventTimeEnd
+  } = data;
+
+  const parameters = {
+    group_id: MEETUP_GROUP_ID,
+    group_urlname: MEETUP_URLNAME,
+    name: eventName,
+    time: moment(
+      `${eventDate} ${eventTimeStart}`,
+      'YYYY-MM-DD hh:mmA'
+    ).valueOf(),
+    duration: getDuration(eventDate, eventTimeStart, eventTimeEnd)
+  };
+
+  meetup.postEvent(parameters, function(err, resp) {
+    if (err) {
+      progressIndicator.stopAndPersist(FAILURE_SYMBOL);
+      callback(err);
+      return;
+    }
+    progressIndicator.stopAndPersist(SUCCESS_SYMBOL);
+    const updatedData = _.assign(data, {
+      meetupEventURL: resp.event_url,
+      meetupGroupID: resp.group.id,
+      meetupEventID: resp.id
+    });
+    callback(null, updatedData);
+  });
+}
+
+// need to update the event after creating the github issue, so we can reference that url
+// on the meetup event
+function updateMeetupEvent(data, callback) {
+  const progressIndicator = ora('Updating Meetup.com Event').start();
+  const {
+    eventName,
+    eventLocationName,
+    eventDate,
+    eventTimeStart,
+    eventTimeIntro,
+    eventTimeEnd,
+    eventTimeLearningStart,
+    eventTimeLearningEnd,
+    eventTimeFood,
+    eventMeetupURL,
+    mentorRegistrationUrl,
+    meetupEventID,
+    eventLocationCoordinates,
+    mentorArriveTime
+  } = data;
+
+  const meetupEventBody = Mustache.render(meetupTemplate, {
+    eventTimeStart,
+    eventTimeIntro,
+    eventTimeLearningStart,
+    eventTimeLearningEnd,
+    eventTimeFood,
+    eventTimeEnd,
+    mentorArriveTime,
+    mentorRegistrationUrl,
+    meetupEventID,
+    eventLocationCoordinates
+  });
+
+  const parameters = {
+    description: meetupEventBody,
+    id: meetupEventID,
+    lat: eventLocationCoordinates.lat,
+    lon: eventLocationCoordinates.lng,
+    'lat,lon': `${eventLocationCoordinates.lat},${eventLocationCoordinates.lng}`
+  };
+
+  meetup.editEvent(parameters, function(err, resp) {
+    if (err) {
+      progressIndicator.stopAndPersist(FAILURE_SYMBOL);
+      callback(err);
+      return;
+    }
+    progressIndicator.stopAndPersist(SUCCESS_SYMBOL);
+    callback(null, data);
+  });
 }
 
 function getEventLocationLatLng(data, callback) {
@@ -320,10 +471,12 @@ function addEventToNodeSchoolCalendar(data, callback) {
 }
 
 function generateWebsite(data, callback) {
+  const cmd = isWindows ? 'npm.cmd' : 'npm';
   const progressIndicator = ora('Generating website').start();
   const {
     eventDate,
-    eventTime,
+    eventTimeStart,
+    eventTimeEnd,
     eventLocationName,
     eventLocation,
     eventRegistrationUrl,
@@ -334,7 +487,7 @@ function generateWebsite(data, callback) {
     nextEvent: {
       dayOfTheWeek: moment(eventDate).format('dddd'),
       date: moment(eventDate).format('MMMM Do'),
-      time: eventTime,
+      time: `${eventTimeStart}-${eventTimeEnd}`,
       address: `${eventLocationName} ${eventLocation}`,
       addressUrlSafe: encodeURIComponent(eventLocation),
       mentorsUrl: mentorRegistrationUrl,
@@ -347,7 +500,9 @@ function generateWebsite(data, callback) {
     encoding: 'UTF8'
   });
 
-  const docsBuild = spawn('npm', ['run', 'docs:build'], { stdio: 'inherit' });
+  const docsBuild = spawn(NPM_CMD, ['run', 'docs:build'], {
+    stdio: 'inherit'
+  });
   docsBuild.on('error', function(error) {
     progressIndicator.stopAndPersist(FAILURE_SYMBOL);
     callback(error);
@@ -360,8 +515,9 @@ function generateWebsite(data, callback) {
 
 function generateSocialImage(data, callback) {
   const progressIndicator = ora('Generating social image').start();
-  const generateSocial = spawn('npm', ['run', 'docs:generate-social'], {
-    stdio: 'inherit'
+  const generateSocial = spawn(NPM_CMD, ['run', 'docs:generate-social'], {
+    stdio: 'inherit',
+    cwd: path.join(__dirname, '../')
   });
 
   generateSocial.on('error', function(error) {
@@ -376,7 +532,7 @@ function generateSocialImage(data, callback) {
 
 function publishWebsite(data, callback) {
   const progressIndicator = ora('Publishing website').start();
-  const docsPublish = spawn('npm', ['run', 'docs:publish'], {
+  const docsPublish = spawn(NPM_CMD, ['run', 'docs:publish'], {
     stdio: 'inherit'
   });
 
@@ -393,11 +549,12 @@ function publishWebsite(data, callback) {
 async.waterfall(
   [
     inquire,
+    getEventLocationLatLng,
     createMeetupEvent,
-    createMentorIssue
-    // getEventLocationLatLng,
+    createMentorIssue,
+    updateMeetupEvent,
     // addEventToNodeSchoolCalendar,
-    // generateWebsite,
+    generateWebsite
     // publishWebsite
   ],
   function(error, result) {

@@ -6,25 +6,19 @@
     "doc": "docs"
   },
   "scripts": {
-    "create":
-      "NODESCHOOL_SEA_GITHUB_API_TOKEN=1b4fcf3fcb2d28d78041d652e5dcd783acdbe01f NODESCHOOL_SEA_GITHUB_API_USER=e-e NODESCHOOL_SEA_MEETUP_API_KEY=701e127f58191d3e972154e2e2d3c5 node scripts/create.js",
+    "create": "node scripts/create.js",
     "docs:build": "mkdirp docs && npm-run-all --serial docs:build:*",
-    "docs:build:html":
-      "mustache docs-src/data.json docs-src/index.mustache > docs/index.html",
-    "docs:build:styles":
-      "mkdirp docs/styles && stylus docs-src/styles/index.styl --out docs/styles --include node_modules --include-css",
+    "docs:build:html": "mustache docs-src/data.json docs-src/index.mustache > docs/index.html",
+    "docs:build:styles": "mkdirp docs/styles && stylus docs-src/styles/index.styl --out docs/styles --include node_modules --include-css",
     "docs:build:images": "ncp docs-src/images docs/images",
     "docs:watch": "mkdirp docs && npm-run-all --parallel docs:watch:*",
-    "docs:watch:html":
-      "chokidar docs-src/index.mustache -c 'npm run docs:build:html' --initial",
+    "docs:watch:html": "chokidar docs-src/index.mustache -c 'npm run docs:build:html' --initial",
     "docs:watch:styles": "npm run docs:build:styles -- -w",
-    "docs:watch:images":
-      "chokidar docs-src/images/* -c 'npm run docs:build:images' --initial",
-    "docs:watch:fonts":
-      "chokidar docs-src/fonts/* -c 'npm run docs:build:fonts' --initial",
-    "docs:server":
-      "static docs --port=${PORT:=8080} --host-address=${HOST:=127.0.0.1}",
-    "docs:dev": "npm-run-all --parallel docs:watch docs:server"
+    "docs:watch:images": "chokidar docs-src/images/* -c 'npm run docs:build:images' --initial",
+    "docs:watch:fonts": "chokidar docs-src/fonts/* -c 'npm run docs:build:fonts' --initial",
+    "docs:server": "static docs --port=${PORT:=8080} --host-address=${HOST:=127.0.0.1}",
+    "docs:dev": "npm-run-all --parallel docs:watch docs:server",
+    "docs:publish": "git add docs-src/* docs/* && git commit -m \"AUTOMATIC site update\" && git push"
   },
   "repository": {
     "type": "git",
@@ -38,6 +32,7 @@
   "dependencies": {
     "async": "^2.6.0",
     "chalk": "^2.3.0",
+    "dotenv": "^4.0.0",
     "inquirer": "^4.0.1",
     "lodash": "^4.17.4",
     "meetup-api": "^1.4.30",

@@ -1,24 +1,11 @@
 {
+  "generatedAt": 1515565877859,
   "nextEvent": {
     "dayOfTheWeek": "Saturday",
-    "date": "December 2nd",
-    "time": "1-5PM",
-    "address": "Groupon, 1201 3rd Ave, Seattle, WA 98101",
-    "addressUrlSafe": "1201+3rd+Ave,+Seattle,+WA+98101",
-    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/57",
-    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/245316852/"
-  },
-  "organizers" : [{
-    "name": "Seth Vincent",
-    "twitter": "sethdvincent"
-  }, {
-    "name": "Wil Alvarez",
-    "twitter": "satanas82"
-  }, {
-    "name": "Justin Beckwith",
-    "twitter": "JustinBeckwith"
-  }, {
-    "name": "Charlie Crawford",
-    "twitter": ""
-  }]
+    "date": "January 20th",
+    "time": "12:00PM-5:00PM",
+    "address": "Google 601 N 34th St, Seattle, WA 98103",
+    "addressUrlSafe": "601%20N%2034th%20St%2C%20Seattle%2C%20WA%2098103",
+    "mentorsUrl": "https://github.com/e-e/test/issues/32"
+  }
 }
