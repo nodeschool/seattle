@@ -1,11 +1,11 @@
 {
-  "generatedAt": 1515568773272,
+  "generatedAt": 1515568978229,
   "nextEvent": {
-    "dayOfTheWeek": "Friday",
-    "date": "February 2nd",
+    "dayOfTheWeek": "Thursday",
+    "date": "February 1st",
     "time": "1:00PM-5:00PM",
-    "address": "123 801 Dexter Ave N, Seattle, WA 98109",
-    "addressUrlSafe": "801%20Dexter%20Ave%20N%2C%20Seattle%2C%20WA%2098109",
-    "mentorsUrl": "https://github.com/e-e/test/issues/37"
+    "address": "Google 601 N 34th St, Seattle, WA 98103",
+    "addressUrlSafe": "601%20N%2034th%20St%2C%20Seattle%2C%20WA%2098103",
+    "mentorsUrl": "https://github.com/e-e/test/issues/38"
   }
 }
