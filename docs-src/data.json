@@ -1,11 +1,11 @@
 {
-  "generatedAt": 1515568978229,
+  "generatedAt": 1515569135575,
   "nextEvent": {
-    "dayOfTheWeek": "Thursday",
-    "date": "February 1st",
+    "dayOfTheWeek": "Friday",
+    "date": "February 2nd",
     "time": "1:00PM-5:00PM",
     "address": "Google 601 N 34th St, Seattle, WA 98103",
     "addressUrlSafe": "601%20N%2034th%20St%2C%20Seattle%2C%20WA%2098103",
-    "mentorsUrl": "https://github.com/e-e/test/issues/38"
+    "mentorsUrl": "https://github.com/e-e/test/issues/39"
   }
 }
