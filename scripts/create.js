@@ -11,6 +11,9 @@ const async = require('async');
 const ora = require('ora');
 const chalk = require('chalk');
 const Nightmare = require('nightmare');
+const meetup = require('meetup-api')({
+  key: process.env.NODESCHOOL_SEA_MEETUP_API_KEY
+});
 
 slug.defaults.mode = 'rfc3986';
 
@@ -23,8 +26,8 @@ const {
 
 const NODESCHOOL_SEA_DEFAULT_EVENT_LOCATION = '';
 const NODESCHOOL_SEA_DEFAULT_EVENT_COORDS = {
-  lat: 37.8077447,
-  lng: -122.2653488
+  lat: 47.606209,
+  lng: -122.332071
 };
 // test calendar form url https://docs.google.com/forms/d/e/1FAIpQLSe2SK5Vzy82yB9SjLI5B3zfrR1QEaxyjyRGvVxWp_K66p31ZA/viewform
 const NODESCHOOL_CALENDAR_FORM_URL =
@@ -37,7 +40,9 @@ const NODESCHOOL_CHAPTER_URL = 'https://nodeschool.io/seattle';
 
 const MEETUP_URL = 'https://api.meetup.com';
 const MEETUP_URLNAME = 'Meetup-API-Testing';
-const MEETUP_HEADERS = {};
+const MEETUP_GROUP_ID = '1556336';
+// const MEETUP_URLNAME = 'Seattle-NodeSchool';
+// const MEETUP_GROUP_ID = '18179633';
 
 const GITHUB_URL = 'https://api.github.com';
 const GITHUB_HEADERS = {
@@ -52,6 +57,10 @@ const FAILURE_SYMBOL = chalk.red('✘');
 
 const mentorIssueTemplate = fs.readFileSync(
   `${__dirname}/templates/mentor-registration-issue.mustache`,
+  'utf8'
+);
+const meetupTemplate = fs.readFileSync(
+  `${__dirname}/templates/meetup-event.mustache`,
   'utf8'
 );
 
@@ -150,7 +159,14 @@ function inquire(callback) {
     });
 }
 
+function getDuration(date, time) {
+  const addHrs = time.toString().toLowerCase();
+  const timeParts = time.replace(/(am|pm)$/i, '').split('-');
+  const start = `${date} `;
+}
+
 function createMeetupEvent(data, callback) {
+  const progressIndicator = ora('Creating Meetup.com Event').start();
   const {
     eventName,
     eventLocationName,
@@ -159,36 +175,23 @@ function createMeetupEvent(data, callback) {
     eventMeetupURL
   } = data;
 
-  request.post(
-    {
-      url: `${MEETUP_URL}/${MEETUP_URLNAME}/events`,
-      headers: GITHUB_HEADERS,
-      json: true,
-      body: {
-        title: `Mentor Registration: ${eventName} at ${eventLocationName}`,
-        body: mentorIssueBody
-      }
-    },
-    function(error, response, body) {
-      if (error) {
-        progressIndicator.stopAndPersist(FAILURE_SYMBOL);
-        callback(error);
-        return;
-      }
+  const parameters = {
+    group_id: MEETUP_GROUP_ID,
+    group_urlname: MEETUP_URLNAME,
+    name: eventName,
+    simple_html_description: '',
+    time: ''
+  };
 
-      progressIndicator.stopAndPersist(SUCCESS_SYMBOL);
-      const { html_url: mentorRegistrationUrl } = body;
-      const updatedData = _.assign(data, {
-        mentorRegistrationUrl
-      });
-      callback(null, updatedData);
-    }
-  );
-
-  const updatedData = _.assign(data, {
-    eventMeetupURL: 'https://meetup.com/test-url'
+  meetup.postEvent(parameters, function(err, resp) {
+    console.log(err, resp);
+    process.exit();
   });
-  callback(null, updatedData);
+
+  // const updatedData = _.assign(data, {
+  //   eventMeetupURL: 'https://meetup.com/test-url'
+  // });
+  // callback(null, updatedData);
 }
 
 function createMentorIssue(data, callback) {

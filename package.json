@@ -7,7 +7,7 @@
   },
   "scripts": {
     "create":
-      "NODESCHOOL_SEA_GITHUB_API_TOKEN=a392230af8e420dd9d5cd41fd9982f01f7b7a57b NODESCHOOL_SEA_GITHUB_API_USER=e-e NODESCHOOL_SEA_MEETUP_API_KEY=701e127f58191d3e972154e2e2d3c5 node scripts/create.js",
+      "NODESCHOOL_SEA_GITHUB_API_TOKEN=1b4fcf3fcb2d28d78041d652e5dcd783acdbe01f NODESCHOOL_SEA_GITHUB_API_USER=e-e NODESCHOOL_SEA_MEETUP_API_KEY=701e127f58191d3e972154e2e2d3c5 node scripts/create.js",
     "docs:build": "mkdirp docs && npm-run-all --serial docs:build:*",
     "docs:build:html":
       "mustache docs-src/data.json docs-src/index.mustache > docs/index.html",
@@ -40,6 +40,7 @@
     "chalk": "^2.3.0",
     "inquirer": "^4.0.1",
     "lodash": "^4.17.4",
+    "meetup-api": "^1.4.30",
     "moment": "^2.20.1",
     "mustache": "^2.2.1",
     "nightmare": "^2.10.0",
