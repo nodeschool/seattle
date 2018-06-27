@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,target-densitydpi=device-dpi">
+    <meta name="robots" content="noindex">
+    <title>NodeSchool Seattle - Social Image</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div class="social">
+      <header id="header" class="header">
+        <div class="header__content section__content__social">
+          <div class="header__identification">
+              <img id="logo" class="header__logo" src="./images/nodeschool-seattle.svg" />
+            <div class="header__logo-text">
+              <div class="header__logo-text__nodeschool">NodeSchool</div>
+              <div class="header__logo-text__sf">Seattle</div>
+            </div>
+          </div>
+
+          {{#nextEvent}}
+          <div class="next-event__social">
+            <div class="next-event__description">
+              <ul class="next-event__info">
+                <li class="next-event__info__item">
+                  <strong class="strong--alt">When?</strong> {{dayOfTheWeek}}, {{date}} from {{time}}
+                </li>
+                <li class="next-event__info__item">
+                  <strong class="strong--alt">Where?</strong> {{address}}
+                </li>
+                <li class="next-event__info__item">
+                  <strong class="strong--alt">What?</strong> Learning, mentoring, JS bffs, and pizza <img src="./images/pizza-emoji.png" class="emoji" alt="pizza emoji">
+                </li>
+              </ul>
+            </div>
+            <div class="next-event__links">
+              <button class="social__button button">Learn With Us</button>
+            </div>
+          </div>
+          {{/nextEvent}}
+        </div>
+      </header>
+    </div>
+  </body>
+</html>

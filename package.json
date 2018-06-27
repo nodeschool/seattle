@@ -8,7 +8,7 @@
   "scripts": {
     "create": "node scripts/create.js",
     "docs:build": "mkdirp docs && npm-run-all --serial docs:build:*",
-    "docs:build:html": "mustache docs-src/data.json docs-src/index.mustache > docs/index.html",
+    "docs:build:html": "mustache docs-src/data.json docs-src/index.mustache > docs/index.html && mustache docs-src/data.json docs-src/social.mustache > docs/social.html",
     "docs:build:styles": "mkdirp docs/styles && stylus docs-src/styles/index.styl --out docs/styles --include node_modules --include-css",
     "docs:build:images": "ncp docs-src/images docs/images",
     "docs:watch": "mkdirp docs && npm-run-all --parallel docs:watch:*",
@@ -17,6 +17,8 @@
     "docs:watch:images": "chokidar docs-src/images/* -c 'npm run docs:build:images' --initial",
     "docs:watch:fonts": "chokidar docs-src/fonts/* -c 'npm run docs:build:fonts' --initial",
     "docs:server": "static docs --port=${PORT:=8080} --host-address=${HOST:=127.0.0.1}",
+    "docs:dev": "npm-run-all --parallel docs:watch docs:server",
+    "docs:generate-social": "node scripts/generate_social_image.js"
     "docs:dev": "npm-run-all --parallel docs:watch docs:server",
     "docs:publish": "git add docs-src/* docs/* && git commit -m \"AUTOMATIC site update\" && git push"
   },
@@ -30,6 +32,9 @@
   },
   "homepage": "https://nodeschool.io/seattle",
   "dependencies": {
+    "mustache": "^2.2.1",
+    "nightmare": "^2.10.0",
+    "sharp": "^0.18.4"
     "async": "^2.6.0",
     "chalk": "^2.3.0",
     "dotenv": "^4.0.0",
@@ -37,8 +42,6 @@
     "lodash": "^4.17.4",
     "meetup-api": "^1.4.30",
     "moment": "^2.20.1",
-    "mustache": "^2.2.1",
-    "nightmare": "^2.10.0",
     "ora": "^1.3.0",
     "request": "^2.83.0",
     "slug": "^0.9.1"
