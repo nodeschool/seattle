@@ -9,14 +9,14 @@
     "mentorsUrl": "https://github.com/nodeschool/seattle/issues/66",
     "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/252142235/"
   },
-  "organizers" : [{
-    "name": "Wil Alvarez",
+  "organizers" : [
+    {"name": "Wil Alvarez",
     "twitter": "satanas82"
-  }, {
-    "name": "Justin Beckwith",
+  },
+    {"name": "Justin Beckwith",
     "twitter": "JustinBeckwith"
-  }, {
-    "name": "Seth Vincent",
+  },
+    {"name": "Seth Vincent",
     "twitter": "sethdvincent"
   }]
 }
