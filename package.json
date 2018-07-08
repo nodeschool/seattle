@@ -18,8 +18,7 @@
     "docs:watch:fonts": "chokidar docs-src/fonts/* -c 'npm run docs:build:fonts' --initial",
     "docs:server": "static docs --port=${PORT:=8080} --host-address=${HOST:=127.0.0.1}",
     "docs:dev": "npm-run-all --parallel docs:watch docs:server",
-    "docs:generate-social": "node scripts/generate_social_image.js"
-    "docs:dev": "npm-run-all --parallel docs:watch docs:server",
+    "docs:generate-social": "node scripts/generate_social_image.js",
     "docs:publish": "git add docs-src/* docs/* && git commit -m \"AUTOMATIC site update\" && git push"
   },
   "repository": {
@@ -34,7 +33,7 @@
   "dependencies": {
     "mustache": "^2.2.1",
     "nightmare": "^2.10.0",
-    "sharp": "^0.18.4"
+    "sharp": "^0.18.4",
     "async": "^2.6.0",
     "chalk": "^2.3.0",
     "dotenv": "^4.0.0",
