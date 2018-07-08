@@ -8,8 +8,8 @@ const nightmare = Nightmare({
   show: true
 });
 
-const WIDTH = 900;
-const HEIGHT = 500;
+const WIDTH = 1200;
+const HEIGHT = 630;
 const SCREENSHOT_PATH = path.normalize(`${__dirname}/../docs/images/social.png`);
 
 nightmare
