@@ -1,17 +1,3 @@
-.next-event__social {
-  width: 400px;
-  margin: 35px 0;
-  background-color: $color-seahawks-light-blue;
-  filter: drop-shadow(0 0 15px $color-drop-shadow);
-}
-
-.section__content__social {
-  position: relative;
-  width: 700px;
-  margin: 0 auto;
-  padding: 0 0 0 190px;
-}
-
 .social__button {
   right: 0;
   bottom: 0;
@@ -19,4 +5,74 @@
   width: 100%;
   line-height: 160%;
   padding-top: 15px;
+}
+
+.social {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .section__content__social {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 50px 50px 60px 50px;
+
+    &:after {
+      background-size: 40px 26px;
+    }
+  }
+
+  .header {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .header__identification {
+    position: static;
+    float: left;
+  }
+
+  .header__logo {
+    width: 235px;
+  }
+
+  .header__logo-text {
+    font-size: 38px;
+    line-height: 54px;
+  }
+
+  .next-event__description {
+    padding: 30px 50px;
+  }
+
+  .next-event__info__item {
+    margin: 20px 0;
+  }
+
+  .next-event__links {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .next-event__action__learn {
+    width: 100%;
+    line-height: 160%;
+    padding-top: 15px;
+  }
+
+  .next-event__social {
+    position: relative;
+    flex: 1;
+    margin: 0 0 0 50px;
+    font-size: 38px;
+    line-height: 45px;
+    background-color: $color-seahawks-light-blue;
+    filter: drop-shadow(0 0 15px $color-drop-shadow);
+  }
 }
