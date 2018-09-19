@@ -7,7 +7,7 @@
   },
   "scripts": {
     "create": "node scripts/create.js",
-    "docs:build": "mkdirp docs && npm-run-all --serial docs:build:*",
+    "docs:build": "mkdirp docs && npm-run-all --serial docs:build:* && npm run docs:generate-social",
     "docs:build:html": "mustache docs-src/data.json docs-src/index.mustache > docs/index.html && mustache docs-src/data.json docs-src/social.mustache > docs/social.html",
     "docs:build:styles": "mkdirp docs/styles && stylus docs-src/styles/index.styl --out docs/styles --include node_modules --include-css",
     "docs:build:images": "ncp docs-src/images docs/images",
