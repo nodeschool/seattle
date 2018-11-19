@@ -6,6 +6,13 @@
     "time": "1:00PM-5:00PM",
     "address": "Reactor Seattle 320 Westlake Ave N, Seattle, WA 98109",
     "addressUrlSafe": "320%20Westlake%20Ave%20N%2C%20Seattle%2C%20WA%2098109",
-    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/75"
-  }
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/75",
+    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/256529364/"
+  },
+  "organizers": [
+    {
+      "name": "Wil Alvarez",
+      "twitter": "satanas82"
+    }
+  ]
 }
