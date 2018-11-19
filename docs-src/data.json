@@ -1,15 +1,15 @@
 {
-  "generatedAt": 1537317126545,
+  "generatedAt": 1542585380998,
   "nextEvent": {
     "dayOfTheWeek": "Saturday",
-    "date": "September 29th",
+    "date": "December 15th",
     "time": "1:00PM-5:00PM",
-    "address": "Groupon, Inc. 1201 3rd Ave, Seattle, WA 98101",
-    "addressUrlSafe": "1201%203rd%20Ave%2C%20Seattle%2C%20WA%2098101",
-    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/72",
-    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/254805374/"
+    "address": "Reactor Seattle 320 Westlake Ave N, Seattle, WA 98109",
+    "addressUrlSafe": "320%20Westlake%20Ave%20N%2C%20Seattle%2C%20WA%2098109",
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/75",
+    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/256529364/"
   },
-  "organizers" : [
+  "organizers": [
     {
       "name": "Wil Alvarez",
       "twitter": "satanas82"
