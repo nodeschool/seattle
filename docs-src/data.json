@@ -5,7 +5,9 @@
     "date": "March 9th",
     "time": "1:00PM-5:00PM",
     "address": "Groupon 1201 3rd Ave, Seattle, WA",
-    "addressUrlSafe": "1201%203rd%20Ave%2C%20Seattle%2C%20WA"
+    "addressUrlSafe": "1201%203rd%20Ave%2C%20Seattle%2C%20WA",
+    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/259302922/",
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/79"
   },
   "organizers": [
     {
