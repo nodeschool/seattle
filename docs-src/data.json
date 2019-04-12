@@ -4,8 +4,15 @@
     "dayOfTheWeek": "Saturday",
     "date": "May 4th",
     "time": "1:00PM-5:00PM",
-    "address": "Groupon Seattle 1201 3rd Ave, Seattle, WA",
+    "address": "Groupon Seattle - 1201 3rd Ave, Seattle, WA",
     "addressUrlSafe": "1201%203rd%20Ave%2C%20Seattle%2C%20WA",
-    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/83"
-  }
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/83",
+    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/260553626/"
+  },
+  "organizers": [
+    {
+      "name": "Wil Alvarez",
+      "twitter": "satanas82"
+    }
+  ]
 }
