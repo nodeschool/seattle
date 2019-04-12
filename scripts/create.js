@@ -72,6 +72,7 @@ const eventNameQuestion = {
   type: 'input',
   name: 'eventName',
   message: 'What is the name of the event?',
+  default: NODESCHOOL_CHAPTER_NAME,
   validate: function (input) {
     if (input.length <= 0) {
       return 'You must input a name for the event!';
@@ -247,16 +248,16 @@ function createMentorIssue(data, callback) {
     eventTimeEnd,
     meetupEventURL
   } = data;
-  const mentorArriveTime = moment(
-    `${eventDate} ${eventTimeStart}`,
-    'YYYY-MM-DD hh:mma'
-  )
+
+  const startDateTime = moment(`${eventDate} ${eventTimeStart}`, 'YYYY-MM-DD hh:mma');
+
+  const mentorArriveTime = startDateTime
     .subtract(30, 'minutes')
     .format('hh:mmA');
 
   const mentorIssueBody = Mustache.render(mentorIssueTemplate, {
     locationName: eventLocationName,
-    date: moment(eventDate).format('MMMM Do'),
+    date: startDateTime.format('MMMM Do'),
     time: `${eventTimeStart}-${eventTimeEnd}`,
     meetupURL: meetupEventURL,
     mentorArriveTime
@@ -268,7 +269,7 @@ function createMentorIssue(data, callback) {
       headers: GITHUB_HEADERS,
       json: true,
       body: {
-        title: `Mentor Registration: ${eventName} at ${eventLocationName}`,
+        title: `Mentor Registration for ${startDateTime.format('MMMM Do, YYYY')}`,
         body: mentorIssueBody
       }
     },
