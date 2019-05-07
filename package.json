@@ -40,6 +40,7 @@
     "moment": "^2.20.1",
     "mustache": "^2.2.1",
     "nightmare": "^2.10.0",
+    "nodeschool-organizer": "file:../../nodeschool-organizer",
     "ora": "^1.3.0",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.7",
