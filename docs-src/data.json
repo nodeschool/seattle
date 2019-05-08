@@ -6,7 +6,8 @@
     "time": "1:00PM-5:00PM",
     "address": "Microsoft Reactor - 3709 157th Ave NE, Redmond, WA 98052",
     "addressUrlSafe": "3709%20157th%20Ave%20NE%2C%20Redmond%2C%20WA%2098052",
-    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/87"
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/87",
+    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/261277733/"
   },
   "organizers": [
     {
