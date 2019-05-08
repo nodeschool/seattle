@@ -5,22 +5,6 @@
   "directories": {
     "doc": "docs"
   },
-  "scripts": {
-    "create": "node scripts/create.js",
-    "docs:build": "mkdirp docs && npm-run-all --serial docs:build:* && npm run docs:generate-social",
-    "docs:build:html": "mustache docs-src/data.json docs-src/index.mustache > docs/index.html && mustache docs-src/data.json docs-src/social.mustache > docs/social.html",
-    "docs:build:styles": "mkdirp docs/styles && stylus docs-src/styles/index.styl --out docs/styles --include node_modules --include-css",
-    "docs:build:images": "ncp docs-src/images docs/images",
-    "docs:watch": "mkdirp docs && npm-run-all --parallel docs:watch:*",
-    "docs:watch:html": "chokidar docs-src/index.mustache -c 'npm run docs:build:html' --initial",
-    "docs:watch:styles": "npm run docs:build:styles -- -w",
-    "docs:watch:images": "chokidar docs-src/images/* -c 'npm run docs:build:images' --initial",
-    "docs:watch:fonts": "chokidar docs-src/fonts/* -c 'npm run docs:build:fonts' --initial",
-    "docs:server": "static docs --port=${PORT:=8080} --host-address=${HOST:=127.0.0.1}",
-    "docs:dev": "npm-run-all --parallel docs:watch docs:server",
-    "docs:generate-social": "node scripts/generate_social_image.js",
-    "docs:publish": "git add docs-src/* docs/* && git commit -m \"AUTOMATIC site update\" && git push"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/nodeschool/seattle.git"
@@ -31,29 +15,6 @@
   },
   "homepage": "https://nodeschool.io/seattle",
   "dependencies": {
-    "async": "^2.6.0",
-    "chalk": "^2.3.0",
-    "dotenv": "^4.0.0",
-    "inquirer": "^4.0.1",
-    "lodash": "^4.17.4",
-    "meetup-api": "^1.4.30",
-    "moment": "^2.20.1",
-    "mustache": "^2.2.1",
-    "nightmare": "^2.10.0",
-    "nodeschool-organizer": "file:../../nodeschool-organizer",
-    "ora": "^1.3.0",
-    "request": "^2.83.0",
-    "request-promise-native": "^1.0.7",
-    "sharp": "^0.18.4",
-    "slug": "^0.9.1"
-  },
-  "devDependencies": {
-    "chokidar-cli": "^1.2.0",
-    "mkdirp": "^0.5.1",
-    "mustache": "^2.3.0",
-    "ncp": "^2.0.0",
-    "node-static": "^0.7.9",
-    "npm-run-all": "^4.0.2",
-    "stylus": "^0.54.5"
+    "nodeschool-assistant": "file:../../nodeschool-assistant"
   }
 }
