@@ -1,1 +1,17 @@
-{"generatedAt":1555118343858,"nextEvent":{"dayOfTheWeek":"Monday","date":"November 11th","time":"1:00PM-5:00PM","address":"Test Location - 123 1st Ave, Seattle","addressUrlSafe":"123%201st%20Ave%2C%20Seattle"},"organizers":[{"name":"Wil Alvarez","twitter":"satanas82"}]}
+{
+  "generatedAt": 1557285045019,
+  "nextEvent": {
+    "dayOfTheWeek": "Saturday",
+    "date": "June 1st",
+    "time": "1:00PM-5:00PM",
+    "address": "Microsoft Reactor - 3709 157th Ave NE, Redmond, WA 98052",
+    "addressUrlSafe": "3709%20157th%20Ave%20NE%2C%20Redmond%2C%20WA%2098052",
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/87"
+  },
+  "organizers": [
+    {
+      "name": "Wil Alvarez",
+      "twitter": "satanas82"
+    }
+  ]
+}
