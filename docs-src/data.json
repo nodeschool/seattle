@@ -1,13 +1,13 @@
 {
-  "generatedAt": 1557285045019,
+  "generatedAt": 1563576721936,
   "nextEvent": {
     "dayOfTheWeek": "Saturday",
-    "date": "June 1st",
+    "date": "August 17th",
     "time": "1:00PM-5:00PM",
-    "address": "Microsoft Reactor - 3709 157th Ave NE, Redmond, WA 98052",
-    "addressUrlSafe": "3709%20157th%20Ave%20NE%2C%20Redmond%2C%20WA%2098052",
-    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/87",
-    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/261277733/"
+    "address": "Groupon - 1201 3rd Ave. Seattle, WA. 98101",
+    "addressUrlSafe": "1201%203rd%20Ave.%20Seattle%2C%20WA.%2098101",
+    "mentorsUrl": "https://github.com/nodeschool/seattle/issues/88",
+    "ticketsUrl": "https://www.meetup.com/Seattle-NodeSchool/events/263300553/"
   },
   "organizers": [
     {
