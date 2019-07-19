@@ -16,7 +16,7 @@ directly.
 
 ## Owner
 
- - Seth Vincent, [@](https://twitter.com/)
+ - Wil Alvarez, [@satanas82](https://twitter.com/satanas82)
 
 ## Contributing to the website
 
